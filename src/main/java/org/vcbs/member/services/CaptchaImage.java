@@ -16,7 +16,7 @@ public class CaptchaImage {
     private final int height = 40;// 高
     private final int lineSize = 30;// 干扰线数量
     private final int stringNum = 4;//随机产生字符的个数
-    private final String randomString = "0123456789abcdefghijklmnopqrstuvwxyz";
+    private final String randomString = "123456789";
 
     /*
      *  获取颜色
@@ -37,7 +37,7 @@ public class CaptchaImage {
      *  获取字体
      */
     private Font getFont() {
-        return new Font(Font.MONOSPACED, Font.PLAIN, 40);
+        return new Font(Font.SANS_SERIF, Font.BOLD, 40);
     }
 
     /*
@@ -65,7 +65,6 @@ public class CaptchaImage {
     private String drawString(Graphics g, String randomStr, int i) {
         g.setFont(getFont());
         g.setColor(getRandomColor(108, 190));
-        System.out.println(random.nextInt(randomString.length()));
         String rand = getRandomString(random.nextInt(randomString.length()));
         randomStr += rand;
         g.translate(random.nextInt(3), random.nextInt(6));
@@ -97,7 +96,7 @@ public class CaptchaImage {
 
         g.dispose();
 
-        StringBuffer encodedImage = new StringBuffer();
+        StringBuilder encodedImage = new StringBuilder();
         encodedImage.append("data:image/png;base64,");
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(image, "PNG", bos);
