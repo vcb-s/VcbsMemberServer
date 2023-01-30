@@ -22,7 +22,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.session:spring-session-core")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.jetbrains:annotations:23.0.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
 
